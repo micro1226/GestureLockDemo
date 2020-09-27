@@ -194,6 +194,7 @@
         self.lastGesturePsw = gesturesPassword;
         [self.gestureLockIndicator setGesturePassword:gesturesPassword];
         self.statusLabel.text = @"请再次绘制手势密码";
+        [self.gestureLockView clearLockView];
         return;
     }
     
@@ -207,6 +208,7 @@
     }else {
         self.statusLabel.text = @"与上一次绘制不一致，请重新绘制";
         [self shakeAnimationForView:self.statusLabel];
+        [self.gestureLockView clearLockView];
     }
     
     
@@ -233,6 +235,7 @@
         
         self.statusLabel.text = [NSString stringWithFormat:@"密码错误，还可以再输入%ld次",--errorCount];
         [self shakeAnimationForView:self.statusLabel];
+        [self.gestureLockView clearLockView];
     }
 }
 
